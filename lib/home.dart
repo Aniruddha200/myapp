@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatefulWidget {
   final ValueChanged<ThemeMode?> changeTheme; // Callback function
 
-  const HomeScreen({Key? key, required this.changeTheme}) : super(key: key);
+  const HomeScreen({super.key, required this.changeTheme});
   @override
   State<StatefulWidget> createState() => _HomeScreenState();
 }
@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     changeThemeState = widget.changeTheme; // Assign in initState
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
