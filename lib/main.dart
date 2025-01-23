@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'arreAssigment.dart';
 import 'themeData.dart';
 
 void main() {
@@ -25,12 +25,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ChatterUI',
-      theme: lightTheme,
-      darkTheme: darkTheme,
-      themeMode: _currentThemeMode,
-      home: HomeScreen(changeTheme: _changeTheme),
-    );
+    return HomeScreen();
   }
 }

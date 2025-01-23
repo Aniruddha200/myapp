@@ -1,51 +1,46 @@
 import 'package:flutter/material.dart';
+import 'interview_assignment_widget.dart';
 
-class HomeScreen extends StatefulWidget {
-  final ValueChanged<ThemeMode?> changeTheme; // Callback function
-
-  const HomeScreen({super.key, required this.changeTheme});
-  @override
-  State<StatefulWidget> createState() => _HomeScreenState();
+void main() {
+  runApp(const MyApp());
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  late ValueChanged<ThemeMode?> changeThemeState; // Declare the variable
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
-  void initState() {
-    super.initState();
-    changeThemeState = widget.changeTheme; // Assign in initState
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(),
+    );
   }
+}
+
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {},
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () {},
+      body: Center(
+        child: SizedBox(
+          width: 350,
+          height: 500,
+          child: InterviewAssignmentWidget(
+            title: "Interview",
+            subtitle: "assignment by [YOUR NAME]",
+            thumbnailImage: "https://images.unsplash.com/photo-1572635148744-e439c3c1a98a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFraW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+            userProfileImages: [
+              "https://images.unsplash.com/photo-1539571696350-5a78e444033d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+              "https://images.unsplash.com/photo-1558898479-311d85450e11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            ],
+            views: "18.6M",
           ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              "Recent",
-              style: TextStyle(fontSize: 20),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("Clear All"),
-            ),
-          ],
         ),
       ),
     );
